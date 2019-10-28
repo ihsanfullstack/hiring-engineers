@@ -1,0 +1,67 @@
+
+
+* Create and provision the VM:
+
+`vagrant up`
+
+Assuming all goes well, everything should be set up.
+
+If you need to debug,
+
+
+* Login to the VM
+
+`vagrant ssh`
+
+
+you need to do `sudo` before docker commands
+
+
+So..
+
+To view the logs for `datadog`
+
+sudo docker logs datadog
+
+
+If you want to re-provision after changing files, do the following:
+
+Log into the vm
+
+`vagrant ssh`
+
+Stop and remove the containers:
+`sudo docker stop datadog && sudo docker rm datadog`
+`sudo docker stop mysql && sudo docker rm mysql`
+
+optionally, remove the files that are there
+
+`rm -rf datadog-agent-conf`
+
+Exit the VM
+
+`exit`
+
+Reprovision:
+
+`vagrant up --provision`
+
+
+If you want to start completely from scratch:
+
+* Destroy the vm
+
+`vagrant destroy`
+
+
+Then re-provision:
+
+`vagrant up`
+
+
+To be able to send traces from the python app,you need the agent running locally in docker. You can use the following command:
+
+DOCKER_CONTENT_TRUST=1 \
+docker run --name datadog -d -v /var/run/docker.sock:/var/run/docker.sock:ro -v /proc/:/host/proc/:ro -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro -v /home/vagrant/datadog-agent-conf/conf.d:/conf.d:ro -v /home/vagrant/datadog-agent-conf/checks.d:/checks.d:ro -e DD_API_KEY=94ee5ca0a31657a5f42ec35ecc206718 -e DD_SITE="datadoghq.eu" -e DD_APM_ENABLED=true --network host datadog/agent:latest
+
+Same as in 'provision.sh'
