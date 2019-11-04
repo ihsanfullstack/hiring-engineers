@@ -11,11 +11,9 @@ In order to the docker agent in the database (I used mysql for docker), run the 
 Here's the running host map and database
 
 
-https://raw.githubusercontent.com/ihsanfullstack/hiring-engineers/master/Screenshot%20from%202019-10-28%2015-19-21.png
-
-
-https://raw.githubusercontent.com/ihsanfullstack/hiring-engineers/master/mysql.png
-
+ ![Host Map](overallinfra.png)
+ 
+ ![my_sql](mysql.png)
 
 The custom agent check is located in the metrics_example.py file, within the datadog-agent-check folder. 
 
