@@ -11,7 +11,7 @@ In order to the docker agent in the database (I used mysql for docker), run the 
 Here's the running host map and database
 
 
- ![Host Map](Screenshot from 2019-10-28 15-19-21.png)
+ ![screenshot](Screenshot from 2019-10-28 15-19-21.png)
  
  ![my_sql](mysql.png)
 
