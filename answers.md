@@ -1,6 +1,6 @@
 ## Setting up the Environment 
 
-I am using Linux Ubuntu 18.04 & Windows 10. 
+I am using Linux Ubuntu 18.04 & Windows 10. Setting up Vagrant may not be necessary using Ubuntu only, as Docker can run on Linux without Vagrant. 
 
 First steps, download Vagrant and Docker, for executing on Windows 10. 
 
@@ -131,12 +131,14 @@ Once set up, simply run the flask app using the console, and it should begin tra
 
 ### Difference between a service and a resource
 
-A service is an application / piece of software from a holistic perspective. For example, in micro-service architecture, each micro service is a service responsible for a given part of the overall architecture/service. A resource however in this context would be an API endpoint within one of the services which could be responsible for serving a view/table of a database. All the API endpoints that one service is responsible for are examples of resources. A resource is more like an object, whereas a service is more like the deployed architecture in which that object lives.
+A service is an application software artifact. For example, in a micro-service architecture, each sub-service is a service responsible for a given part of the overall application, perhaps one service is responsible for the user reviews in an e-commerce site. A resource however, in this context, would be an API endpoint within one of the services which could be responsible for serving/updating/adding a view or table in a database; in fact getters and setters within a class would be resources. All the API endpoints that one service is responsible for are examples of resources. A resource is more like an object, whereas a service is more like the deployed architecture in which that object lives. In summary, a service is something that performs an overall job, whereas a resource is used by that service to perform a specific action. 
 
 
 ### Anything creative I'd use Datadog for? 
 
 Yes, by all means. I'd personally use Datadog to monitor a smart home system at scale, to help me understand where the majority of power usage is coming from. For example, if I were to divide my smart home into a micro-service architecture, and logically seperate each micro-service into relevant concerns (such as bathroom, kitchen, dining room) I could use the data dog agent on each service to determine where most services are employed and at what specific times. If I were to think of this in a commercial sense then, we could analyse a huge amount of data from smart homes in this fashion, to determine where most energy is expended and where energy efficiency efforts (better bulbs, better times to use utilities, as electricity price varies) could be employed in order to maximise green living. Just a thought! 
+
+The above is interesting - after I wrote it a couple of things jumped at me. Firstly, monitoring, independent of Datadog, is clearly better with loosely coupled, micro-service type architecture. Secondly, Datadog gets very interesting with IoT - and since we can customise any metric we like (as I've done above) we can actually use it as a central dashboard for any IoT suite/service that we'd like! 
 
 
 
